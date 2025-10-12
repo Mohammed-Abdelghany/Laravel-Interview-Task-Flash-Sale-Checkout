@@ -156,8 +156,7 @@ API->>Cache: Mark webhook as processed
 ---
 
 **Author:**Muhammed Abdelghany 
-**Framework:** Laravel 12 (PHP 8.3)  
-**Authentication:** JWT  
+**Framework:** Laravel 12  
 **Database:** MySQL  
 **Tests:** PHPUnit  
 
