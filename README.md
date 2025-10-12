@@ -1,15 +1,35 @@
 
 # 🧾 Flash Sale Checkout – Laravel 12 
 
-### 🚀 Overview
-This project implements a **Flash Sale Checkout System** designed to handle **high concurrency** safely.  
-It ensures that:
-- Stock is never oversold (even under parallel requests).
-- Holds expire automatically, returning stock.
-- Orders are created only for valid, unexpired holds.
-- Payment webhooks are **idempotent** and **out-of-order safe**.
-- All operations are **transactional and consistent**.
----
+🚀 Overview
+
+This repository was built as an Interview Task for a Backend Developer position, demonstrating advanced backend design and concurrency handling using Laravel 12.
+
+It implements a Flash Sale Checkout System designed to safely handle high-traffic scenarios where thousands of users may attempt to buy the same product simultaneously.
+
+The solution focuses on data integrity, idempotent payment processing, and safe stock reservation, ensuring that:
+
+🧱 Stock is never oversold — even under parallel requests.
+
+⏰ Holds automatically expire and release reserved stock.
+
+🛒 Orders are created only for valid, unexpired holds.
+
+💳 Payment webhooks are idempotent and out-of-order safe (can arrive before the order is created).
+
+🔒 All operations are transactional, race-condition-proof, and consistent across the system.
+
+This task demonstrates strong skills in:
+
+Database transaction design
+
+Locking strategies (pessimistic concurrency control)
+
+Idempotent webhook processing
+
+Clean architecture (Service + Repository layers)
+
+API validatio, and testing
 
 ## ⚙️ Assumptions & Invariants
 
