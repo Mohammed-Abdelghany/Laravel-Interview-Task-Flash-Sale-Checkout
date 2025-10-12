@@ -6,25 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-  /**
-   * Run the migrations.
-   */
   public function up(): void
   {
-    Schema::create('payment_webhooks', function (Blueprint $table) {
+    Schema::create('webhook_logs', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('order_id')->constrained()->cascadeOnDelete();
       $table->string('idempotency_key')->unique();
-      $table->enum('status', ['success', 'failure']);
+      $table->foreignId('order_id')->constrained()->onDelete('cascade');
+      $table->string('transaction_id');
+      $table->enum('status', ['processing', 'processed', 'duplicate', 'failed']);
+      $table->json('payload');
+      $table->timestamp('processed_at')->nullable();
       $table->timestamps();
+
+      $table->index(['order_id', 'status']);
+      $table->index('created_at');
     });
   }
 
-  /**
-   * Reverse the migrations.
-   */
   public function down(): void
   {
-    Schema::dropIfExists('payment_webhooks');
+    Schema::dropIfExists('webhook_logs');
   }
 };

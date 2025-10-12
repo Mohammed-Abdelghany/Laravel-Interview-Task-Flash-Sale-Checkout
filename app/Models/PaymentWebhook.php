@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class PaymentWebhook extends Model
 {
-    /** @use HasFactory<\Database\Factories\PaymentWebhooksFactory> */
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = [
+    'order_id',
+    'idempotency_key',
+    'status',
+  ];
+  public function order()
+  {
+    return $this->belongsTo(Order::class);
+  }
 }

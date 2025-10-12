@@ -19,8 +19,6 @@ class OrderController extends Controller
   }
   public function store(Request $request)
   {
-
-
     try {
       $data = $request->validate([
         'hold_id' => 'required|exists:holds,id',
