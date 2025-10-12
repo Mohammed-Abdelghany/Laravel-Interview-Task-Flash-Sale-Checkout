@@ -152,6 +152,13 @@ PaymentProvider->>API: POST /api/webhooks/payments
 API->>DB: Update order → paid or cancelled
 API->>Cache: Mark webhook as processed
 ```
+### 🧠 Notes 
+ 
+```
+
+This project was implemented as part of a **technical interview assignment**.  
+All webhook logic and automated tests were completed **with assistance from Cursor AI (OpenAI-powered coding assistant)** to ensure best practices and clarity in design.
+```
 
 ---
 
