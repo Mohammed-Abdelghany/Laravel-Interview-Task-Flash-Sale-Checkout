@@ -26,7 +26,6 @@ class OrderService
       $order = Order::create([
         'hold_id' => $hold->id,
         'product_id' => $hold->product_id,
-        'quantity' => $hold->quantity,
         'amount' => $hold->product->price * $hold->quantity,
         'status' => 'pending',
       ]);
